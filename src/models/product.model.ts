@@ -9,11 +9,7 @@ export const getAllProducts = async (): Promise<IProduct []> => {
   return rows as IProduct[];
 };
 
-export const createProduct = async (name:string, amount:string): Promise<IProductCreated> => {
-  // const sql2 = 'SELECT order_id FROM Trybesmith.products order by order_id DESC LIMIT 1';
-  // const [result1] = await connection.execute(sql2);
-  // console.log(camelize(result1));
-  
+export const createProduct = async (name:string, amount:string): Promise<IProductCreated> => { 
   const sql = 'INSERT INTO Trybesmith.products (name, amount) VALUES (?, ?)';
   const [result] = await connection.execute<ResultSetHeader>(sql, [name, amount]);
   const { insertId: id } = result;
@@ -22,4 +18,4 @@ export const createProduct = async (name:string, amount:string): Promise<IProduc
   return newProduct;
 };
 
-// createProduct('name', 'amount').then((ele) => console.log(ele));
+createProduct('name', 'amount').then((ele) => console.log(ele));
