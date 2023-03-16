@@ -1,15 +1,15 @@
 import { ResultSetHeader } from 'mysql2';
+import { IUser, IToken } from '../interfaces';
 import connection from './connection';
 
-export const createUser = async (user:[]) => {
+export const createUser = async (user: IUser): Promise<IToken> => {
   const { username, vocation, level, password } = user;
 
-  const sql = 'INSERT INTO Trybesmith.products (name, amount) VALUES (?, ?)';
-  const [result] = await connection.execute<ResultSetHeader>(sql, 
-    [username, vocation, level, password]
-  );
-  const { insertId: id } = result;
+  const sql = 'INSERT INTO Trybesmith.user (name, amount) VALUES (?, ?)';
+  await connection.execute<ResultSetHeader>(sql, [username, vocation, level, password]);
 
-  const newProduct: IProductCreated = { id, name, amount };
-  return newProduct;
+  const token = 'fdfsfsdfsd.fsfsdfds.sdfsd45';
+
+  const newUser: IToken = { token };
+  return newUser;
 };
