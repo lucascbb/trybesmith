@@ -18,4 +18,4 @@ export const createProduct = async (name:string, amount:string): Promise<IProduc
   return newProduct;
 };
 
-createProduct('name', 'amount').then((ele) => console.log(ele));
+// createProduct('name', 'amount').then((ele) => console.log(ele));
