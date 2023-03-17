@@ -17,14 +17,6 @@ export const getOrders = async (): Promise<IOrder []> => {
 };
 
 const orderModel = { getOrders };
-
 export default orderModel;
 
 getOrders().then((ele) => console.log(ele));
-
-// export const getAllProducts = async (): Promise<IProduct []> => {
-//   const sql = 'SELECT * FROM Trybesmith.products';
-//   const [rows] = await connection.execute(sql);
-
-//   return rows as IProduct[];
-// };
