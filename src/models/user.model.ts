@@ -3,7 +3,7 @@ import { IUser, IToken, IUserId } from '../interfaces';
 import connection from './connection';
 import { newToken } from '../utils/token.validate';
 
-export const createUser = async (user: IUser): Promise<IToken> => {
+const createUser = async (user: IUser): Promise<IToken> => {
   const { username, vocation, level, password } = user;
 
   const sql2 = 'SELECT id FROM Trybesmith.users order by id desc limit 1';
@@ -20,10 +20,9 @@ export const createUser = async (user: IUser): Promise<IToken> => {
   return newUser;
 };
 
+const userModel = { createUser };
+
+export default userModel;
+
 // const a = { username: 'lucas', vocation: 'professor', level: 99, password: '123456' };
 // createUser(a).then((ele) => console.log(ele));
-
-export const createUs2 = async () => {
-  const ab = 1234;
-  return ab;
-};
