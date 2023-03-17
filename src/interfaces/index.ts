@@ -21,3 +21,12 @@ export interface IUser{
 export interface IToken{
   token:string;
 }
+
+export interface IExpires{
+  expiresIn:string;
+  algorithm: string;
+}
+
+export interface IUserId {
+  id:number; 
+}
