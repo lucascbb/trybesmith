@@ -1,7 +1,7 @@
 import { IOrder } from '../interfaces';
 import connection from './connection';
 
-export const getOrders = async (): Promise<IOrder []> => {
+const getOrders = async (): Promise<IOrder []> => {
   const sql = `SELECT 
   Trybesmith.orders.id,
   Trybesmith.orders.user_id AS userId,
@@ -19,4 +19,4 @@ export const getOrders = async (): Promise<IOrder []> => {
 const orderModel = { getOrders };
 export default orderModel;
 
-getOrders().then((ele) => console.log(ele));
+// getOrders().then((ele) => console.log(ele));

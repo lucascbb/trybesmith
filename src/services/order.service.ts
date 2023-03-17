@@ -1,4 +1,3 @@
-// import { IOrder } from '../interfaces';
 import orderModel from '../models/order.model';
 
 const getOrders = async () => {
@@ -6,6 +5,6 @@ const getOrders = async () => {
   return allOrders;
 };
 
-const userService = { getOrders };
+const orderService = { getOrders };
 
-export default userService;
+export default orderService;
