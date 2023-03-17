@@ -20,10 +20,9 @@ export const createUser = async (user: IUser): Promise<IToken> => {
   return newUser;
 };
 
-const a = { username: 'username', vocation: 'vocation', level: 99, password: 'senha' };
-createUser(a).then((ele) => console.log(ele));
+// const a = { username: 'lucas', vocation: 'professor', level: 99, password: '123456' };
+// createUser(a).then((ele) => console.log(ele));
 
-// Fake
 export const createUs2 = async () => {
   const ab = 1234;
   return ab;
