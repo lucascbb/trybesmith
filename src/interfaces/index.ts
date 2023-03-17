@@ -30,3 +30,9 @@ export interface IExpires{
 export interface IUserId {
   id:number; 
 }
+
+export interface IOrder{
+  id:number;
+  userId:number;
+  productsIds:number | string;
+}
