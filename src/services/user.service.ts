@@ -8,5 +8,5 @@ export const createUser = async (user:IUser) => {
 
 export const createUser2 = async () => {
   const products = 'aaa';
-  return products;
+  console.log(products);
 };
