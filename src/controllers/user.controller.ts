@@ -9,8 +9,6 @@ const createUser = async (req:Request, res:Response) => {
   const user = req.body;
   const { username, vocation, level, password } = req.body;
 
-  console.log(typeof level);
-
   const valiUser = validateUsername(username);
   if (valiUser) return res.status(valiUser.status).json({ message: valiUser.message });
 
@@ -23,8 +21,7 @@ const createUser = async (req:Request, res:Response) => {
   const valiPassowrd = validatePassword(password);
   if (valiPassowrd) return res.status(valiPassowrd.status).json({ message: valiPassowrd.message });
 
-  const token = await userService.createUser(user);
-  return res.status(201).json(token);
+  return res.status(201).json(await userService.createUser(user));
 };
 
 const controllerUser = { createUser };
