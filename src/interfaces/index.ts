@@ -36,3 +36,11 @@ export interface IOrder{
   userId:number;
   productsIds:number | string;
 }
+
+export interface ILogin{
+  id:number;
+  username:string;
+  vocation:string;
+  level: number;
+  password:string;
+}
