@@ -1,4 +1,4 @@
-export const validate2 = (amount:string) => {
+export const validateAmount = (amount:string) => {
   if (!amount) return { status: 400, message: '"amount" is required' };
   if (typeof amount !== 'string') return { status: 422, message: '"amount" must be a string' };
   if (amount.length < 3) { 
@@ -8,6 +8,6 @@ export const validate2 = (amount:string) => {
   }
 };
 
-const validateamount = { validate2 };
+const validate = { validateAmount };
 
-export default validateamount;
+export default validate;
