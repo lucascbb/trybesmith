@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-
 import loginService from '../services/login.service';
 
 const getLogin = async (req:Request, res:Response) => {
