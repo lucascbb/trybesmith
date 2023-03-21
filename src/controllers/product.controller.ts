@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import * as productService from '../services/product.service';
+import { validate } from '../utils/validate.name';
+import { validate2 } from '../utils/validate.amount';
 
 export const getAllProducts = async (_req:Request, res:Response) => {
   const products = await productService.getAllProducts();
@@ -8,13 +10,14 @@ export const getAllProducts = async (_req:Request, res:Response) => {
 
 export const createProduct = async (req:Request, res:Response) => {
   const { name, amount } = req.body;
-
-  if (!name) return res.status(400).json({ message: '"name" is required' });
-  if (typeof name !== 'string') return res.status(422).json({ message: '"name" must be a string' });
-  if (name.length > 2) {
-    return res.status(422).json({ 
-      message: '"name" length must be at least 3 characters long' });
-  }
+  const valiName = validate(name);
+  const valiamount = validate2(amount);
+  
+  if (valiName) return res.status(valiName.status).json({ message: valiName.message });
+  if (valiamount) return res.status(valiamount.status).json({ message: valiamount.message });
+  console.log(valiName);
+  
+  // if (!amount) return res.status(400).json({ message: '"amount" is required' });
   
   const productCreated = await productService.createProduct(name, amount);
   return res.status(201).json(productCreated);
