@@ -9,8 +9,9 @@ export const getAllProducts = async (_req:Request, res:Response) => {
 export const createProduct = async (req:Request, res:Response) => {
   const { name, amount } = req.body;
 
-  if (!name) return res.status(400).json({ message: '"name is required' });
-
+  if (!name) return res.status(400).json({ message: '"name" is required' });
+  if (typeof name !== 'string') return res.status(422).json({ message: '"name" must be a string' });
+  
   const productCreated = await productService.createProduct(name, amount);
   return res.status(201).json(productCreated);
 };
