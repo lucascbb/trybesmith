@@ -9,6 +9,8 @@ export const getAllProducts = async (_req:Request, res:Response) => {
 export const createProduct = async (req:Request, res:Response) => {
   const { name, amount } = req.body;
 
+  if (!name) return res.status(400).json({ message: '"name is required' });
+
   const productCreated = await productService.createProduct(name, amount);
   return res.status(201).json(productCreated);
 };
