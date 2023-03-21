@@ -22,5 +22,6 @@ const getLogin = async (username:string, password:string): Promise<string | null
 const loginModel = { getLogin };
 
 export default loginModel;
-
-getLogin('reigal', '1dragaonoceu').then((ele) => console.log(ele));
+// Para testes futuros e poder lembrar como faz
+// getLogin('reigal', '1dragaonoceu').then((ele) => console.log(ele));
+// codigo: ts-node src/models/login.model.ts
