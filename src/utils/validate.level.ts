@@ -1,10 +1,10 @@
-export const validateLevel = (level:string) => {
+export const validateLevel = (level:number) => {
   if (!level) return { status: 400, message: '"level" is required' };
-  if (typeof level !== 'string') return { status: 422, message: '"level" must be a string' };
-  if (level.length < 3) { 
+  if (typeof level !== 'number') return { status: 422, message: '"level" must be a string' };
+  if (level < 1) { 
     return { 
       status: 422, 
-      message: '"level" length must be at least 3 characters long' }; 
+      message: '"level" must be greater than or equal to 1' }; 
   }
 };
 
