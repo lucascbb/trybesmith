@@ -3,7 +3,7 @@ import connection from './connection';
 import { newToken } from '../utils/token.validate';
 
 const getLogin = async (username:string, password:string): Promise<string | null> => {
-  const sql = 'SELECT id, username FROM Trybesmith.users WHERE username = (?) && password = (?)';
+  const sql = 'SELECT id, username FROM Trybesmith.users WHERE username = (?) AND password = (?)';
   const result = await connection.execute<ResultSetHeader>(sql, [username, password]);
   const user = JSON.parse(JSON.stringify(result[0])); 
   
