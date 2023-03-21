@@ -9,6 +9,8 @@ const createUser = async (req:Request, res:Response) => {
   const user = req.body;
   const { username, vocation, level, password } = req.body;
 
+  console.log(typeof level);
+
   const valiUser = validateUsername(username);
   if (valiUser) return res.status(valiUser.status).json({ message: valiUser.message });
 
