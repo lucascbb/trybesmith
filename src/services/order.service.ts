@@ -5,6 +5,10 @@ const getOrder = async () => {
   return allOrders;
 };
 
-const orderService = { getOrder };
+const createOrder = async (userId: number, productsIds:[]) => {
+  await orderModel.createOrder(userId, productsIds);
+};
+
+const orderService = { getOrder, createOrder };
 
 export default orderService;

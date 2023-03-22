@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { validateToken } from '../utils/token.validate';
 
 import orderService from '../services/order.service';
 
@@ -7,6 +8,20 @@ const getOrders = async (_req:Request, res:Response) => {
   return res.status(200).json(obj);
 };
 
-const controllerOrder = { getOrders };
+const createOrder = async (req:Request, res:Response) => {
+  const token = req.headers.authorization;
+  const { productsIds } = req.body;
+  
+  if (!token) return res.status(401).json({ message: 'Token not found' });
+  if (token === undefined) return res.status(401).json({ message: 'Invalid token' });
+  const a = JSON.parse(JSON.stringify(validateToken(token)));
+  
+  const userId = a.data.userName.id;
+
+  await orderService.createOrder(userId, productsIds);
+  return res.status(201).json({ userId, productsIds });
+};
+
+const controllerOrder = { getOrders, createOrder };
 
 export default controllerOrder;
