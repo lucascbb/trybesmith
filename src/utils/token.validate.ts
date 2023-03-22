@@ -10,5 +10,5 @@ export const newToken = (username:object) => jwt.sign({
 export const validateToken = (token:string) => {
   try { 
     return jwt.verify(token, secret);
-  } catch (error) { return null; }
+  } catch (error) { return 'token invalido'; }
 };

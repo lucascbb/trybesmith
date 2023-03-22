@@ -14,18 +14,17 @@ const createOrder = async (req:Request, res:Response) => {
   
   if (!token) return res.status(401).json({ message: 'Token not found' });
   
-  const a = JSON.parse(JSON.stringify(validateToken(token)));
-  if (a === null) return res.status(401).json({ message: 'Invalid token' });
+  const resultToken = JSON.parse(JSON.stringify(validateToken(token)));
+  if (resultToken === 'token invalido') return res.status(401).json({ message: 'Invalid token' });
 
   const valiProduct = validateproduct(productsIds);
   if (valiProduct) return res.status(valiProduct.status).json({ message: valiProduct.message });
 
-  const userId = a.data.userName.id;
+  const userId = resultToken.data.userName.id;
 
   await orderService.createOrder(userId, productsIds);
   return res.status(201).json({ userId, productsIds });
 };
 
 const controllerOrder = { getOrders, createOrder };
-
 export default controllerOrder;
