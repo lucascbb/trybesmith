@@ -9,12 +9,12 @@ const getOrders = async (_req:Request, res:Response) => {
 };
 
 const createOrder = async (req:Request, res:Response) => {
-  const token = req.headers.authorization;
+  const { authorization } = req.headers;
   const { productsIds } = req.body;
   
-  if (!token) return res.status(401).json({ message: 'Token not found' });
+  if (!authorization) return res.status(401).json({ message: 'Token not found' });
   
-  const resultToken = JSON.parse(JSON.stringify(validateToken(token)));
+  const resultToken = JSON.parse(JSON.stringify(validateToken(authorization)));
   if (resultToken === 'token invalido') return res.status(401).json({ message: 'Invalid token' });
 
   const valiProduct = validateproduct(productsIds);
