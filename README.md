@@ -55,8 +55,11 @@ A API foi construída utilizando as seguintes tecnologias:
   #### 5 - Rode os comandos para criar e popular o banco de dados:
   `npm run posttest` e `npm run restore`
 
-  #### 6 - Rode o projeto na porta 3005 utilizando o nodemon:
-  `npm run debug`
+  #### 6 - Rode o projeto na porta 3003 utilizando o nodemon:
+  `docker exec -it trybesmith bash`
+
+  #### 7 - Rode dentro do container:
+  `npm run dev`
 
 </details>
 
