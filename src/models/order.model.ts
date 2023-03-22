@@ -20,13 +20,7 @@ const createOrder = async (userId: number, productsIds:number[]) => {
   const sql = 'INSERT INTO Trybesmith.orders (user_id) VALUES (?)';
   const p = await connection.execute(sql, [userId]);
   const lastId = JSON.parse(JSON.stringify(p[0])).insertId;
-  
-  // const sql2 = 'SELECT order_id as orderId FROM Trybesmith.products WHERE id = ?';
-  // const x = await connection.execute(sql2, [2]);
-  // const reuslt = JSON.parse(JSON.stringify(x[0]))[0].orderId;
-  // console.log(reuslt);
-  // console.log(lastId);
-  
+    
   const promises = [];
 
   for (let i = 0; i < productsIds.length; i += 1) {
@@ -40,5 +34,3 @@ const createOrder = async (userId: number, productsIds:number[]) => {
 
 const orderModel = { getOrders, createOrder };
 export default orderModel;
-
-// createOrder(1, [2]).then((ele) => console.log(ele));
