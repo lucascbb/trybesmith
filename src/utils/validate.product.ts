@@ -1,10 +1,10 @@
 export const validateproduct = (product:string) => {
-  if (!product) return { status: 400, message: '"product" is required' };
-  if (!Array.isArray(product)) return { status: 422, message: '"productIds" must be an array' };
+  if (!product) return { status: 400, message: '"productsIds" is required' };
+  if (!Array.isArray(product)) return { status: 422, message: '"productsIds" must be an array' };
   if (product.length < 1) { 
     return { 
       status: 422, 
-      message: '"productIds" must include only numbers' }; 
+      message: '"productsIds" must include only numbers' }; 
   }
 };
 
