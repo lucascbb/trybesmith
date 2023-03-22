@@ -1,4 +1,4 @@
-# Boas-vindas ao repositório do projeto API de Blogs!
+# Boas-vindas ao repositório do projeto TrybeSmith!
 
 Este projeto é uma loja de itens medievais, no formato de uma API, utilizando _Typescript_..
 
@@ -62,9 +62,6 @@ A API foi construída utilizando as seguintes tecnologias:
   `npm run dev`
 
 </details>
-
-<br />
-
 <details>
   <summary><strong>Scripts prontos</strong></summary>
   <br />
